@@ -15,6 +15,7 @@
   --pink-100:#ffe4ef;
   --pink-200:#ffc6dd;
   --pink-300:#ff9ec3;
+  --pink-400:#ff74ae;
   --pink-500:#ff4f9a;
   --pink-600:#e8317f;
   --pink-700:#b81d62;
@@ -32,6 +33,11 @@ ul{list-style:none}
 h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.12}
 .container{width:min(1180px,92%);margin-inline:auto}
 section{padding:110px 0}
+
+/* Ícones SVG */
+.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.15em;flex-shrink:0}
+.ico.f{fill:currentColor;stroke:none}
+
 .tag{display:inline-block;font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--pink-600);font-weight:500;margin-bottom:14px}
 .title{font-size:clamp(2.1rem,5vw,3.5rem);margin-bottom:16px}
 .title em{color:var(--pink-600)}
@@ -50,6 +56,7 @@ header.scrolled{background:rgba(255,245,249,.85);backdrop-filter:blur(16px);padd
 .nav{display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;display:flex;align-items:center;gap:8px}
 .logo b{color:var(--pink-600)}
+.logo .ico{color:var(--pink-600);font-size:1.4rem}
 .menu{display:flex;gap:32px;align-items:center}
 .menu a:not(.btn){font-size:.9rem;position:relative}
 .menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--pink-500);transition:.35s var(--ease)}
@@ -78,6 +85,7 @@ header.scrolled{background:rgba(255,245,249,.85);backdrop-filter:blur(16px);padd
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
 .hero-info{display:flex;gap:34px;margin-top:50px;flex-wrap:wrap;font-size:.88rem;color:var(--muted)}
 .hero-info div{display:flex;gap:10px;align-items:center}
+.hero-info .ico{color:var(--pink-600);font-size:1.15rem}
 .hero-visual{position:relative;height:560px}
 .blob{position:absolute;inset:0;border-radius:42% 58% 55% 45%/50% 40% 60% 50%;
   background:linear-gradient(145deg,var(--pink-300),var(--pink-500) 60%,var(--pink-700));
@@ -88,38 +96,42 @@ header.scrolled{background:rgba(255,245,249,.85);backdrop-filter:blur(16px);padd
 .hand{position:absolute;inset:0;display:grid;place-items:center}
 .hand svg{width:68%;filter:drop-shadow(0 25px 30px rgba(120,10,60,.4));animation:float 6s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-16px)}}
-.chip{position:absolute;background:#fff;padding:12px 20px;border-radius:50px;font-size:.82rem;font-weight:500;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite}
+.chip{position:absolute;background:#fff;padding:12px 20px;border-radius:50px;font-size:.82rem;font-weight:500;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;display:flex;align-items:center;gap:8px}
+.chip .ico{color:var(--pink-600);font-size:1.1rem}
 .chip.c1{top:10%;left:-6%}.chip.c2{bottom:14%;right:-4%;animation-delay:-2s}
-.spark{position:absolute;color:#fff;font-size:1.6rem;animation:twinkle 3s infinite}
-.spark.s1{top:20%;right:12%}.spark.s2{bottom:30%;left:8%;animation-delay:-1s}
+.spark{position:absolute;color:var(--pink-400);font-size:1.8rem;animation:twinkle 3s infinite}
+.spark.s1{top:22%;right:10%}.spark.s2{bottom:28%;left:6%;animation-delay:-1s}
 @keyframes twinkle{50%{transform:scale(1.5) rotate(20deg);opacity:.5}}
 
 /* Marquee */
 .marquee{background:linear-gradient(90deg,var(--pink-600),var(--pink-500));color:#fff;padding:18px 0;overflow:hidden;white-space:nowrap}
 .marquee div{display:inline-block;animation:slide 25s linear infinite;font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic}
-.marquee span{margin:0 28px}
+.marquee span{margin:0 22px}
+.marquee .ico{font-size:.9rem;margin:0 6px}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* Serviços */
 .services{background:#fff}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:60px;text-align:left}
 .card{background:var(--pink-50);padding:40px 32px;border-radius:var(--radius);position:relative;overflow:hidden;transition:.5s var(--ease);border:1px solid var(--pink-100)}
-.card::before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,var(--pink-400,#ff74ae),var(--pink-600));opacity:0;transition:.5s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,var(--pink-400),var(--pink-600));opacity:0;transition:.5s var(--ease)}
 .card>*{position:relative;transition:.4s}
 .card:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
 .card:hover::before{opacity:1}
 .card:hover>*{color:#fff}
-.card .icon{font-size:2.4rem;margin-bottom:16px;display:inline-block;transition:.5s var(--ease)}
-.card:hover .icon{transform:rotate(-12deg) scale(1.2)}
+.card .icon{width:64px;height:64px;border-radius:18px;background:#fff;display:grid;place-items:center;font-size:1.9rem;color:var(--pink-600);margin-bottom:20px;box-shadow:0 10px 24px -12px var(--pink-500);transition:.5s var(--ease)}
+.card:hover .icon{transform:rotate(-10deg) scale(1.1)}
+.card:hover .icon .ico{color:var(--pink-600)}
 .card h3{font-size:1.65rem;margin-bottom:8px}
 .card p{font-size:.9rem;color:var(--muted)}
 
 /* Sobre */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-img{height:520px;border-radius:var(--radius);background:linear-gradient(160deg,var(--pink-200),var(--pink-300));position:relative;box-shadow:var(--shadow);display:grid;place-items:center;font-size:8rem}
+.about-img{height:520px;border-radius:var(--radius);background:linear-gradient(160deg,var(--pink-200),var(--pink-400));position:relative;box-shadow:var(--shadow);display:grid;place-items:center;color:#fff;font-size:8rem}
 .about-img::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--pink-500);border-radius:var(--radius);z-index:-1}
 .checks{margin:26px 0 36px;display:grid;gap:12px}
-.checks li::before{content:"♡";color:var(--pink-600);margin-right:12px;font-weight:600}
+.checks li{display:flex;align-items:center;gap:12px}
+.checks li::before{content:"";width:16px;height:16px;flex-shrink:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23e8317f' d='M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* Galeria */
 .gallery{background:#fff}
@@ -127,10 +139,10 @@ header.scrolled{background:rgba(255,245,249,.85);backdrop-filter:blur(16px);padd
 .filters button{padding:10px 26px;border-radius:50px;border:1.5px solid var(--pink-300);background:transparent;cursor:pointer;font-family:inherit;color:var(--ink);transition:.3s}
 .filters button.active,.filters button:hover{background:var(--pink-600);border-color:var(--pink-600);color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.item{aspect-ratio:1;border-radius:var(--radius);display:grid;place-items:center;font-size:3.6rem;position:relative;overflow:hidden;transition:.5s var(--ease)}
+.item{aspect-ratio:1;border-radius:var(--radius);display:grid;place-items:center;font-size:3.8rem;color:#fff;position:relative;overflow:hidden;transition:.5s var(--ease)}
 .item:hover{transform:scale(1.04) rotate(-1.5deg)}
 .item.hide{display:none}
-.item span{position:absolute;bottom:14px;font-size:.8rem;font-weight:500;background:rgba(255,255,255,.9);padding:4px 16px;border-radius:30px}
+.item span{position:absolute;bottom:14px;font-size:.8rem;font-weight:500;color:var(--pink-700);background:rgba(255,255,255,.92);padding:4px 16px;border-radius:30px}
 .note{margin-top:26px;font-size:.82rem;color:var(--muted)}
 
 /* Contato */
@@ -140,7 +152,7 @@ header.scrolled{background:rgba(255,245,249,.85);backdrop-filter:blur(16px);padd
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .info{margin:30px 0;display:grid;gap:18px}
 .info li{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.07);padding:18px 22px;border-radius:16px;border:1px solid rgba(255,255,255,.1)}
-.info li span{font-size:1.4rem}
+.info .ic{font-size:1.5rem;color:var(--pink-300);margin-top:2px}
 .info small{display:block;color:var(--pink-300);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase}
 .map{border-radius:var(--radius);overflow:hidden;height:420px;box-shadow:var(--shadow);border:4px solid rgba(255,255,255,.12)}
 .map iframe{width:100%;height:100%;border:0}
@@ -156,8 +168,8 @@ select option{color:#000}
 footer{background:#1d0613;color:#d8b4c6;padding:60px 0 30px;text-align:center}
 footer .logo{justify-content:center;color:#fff;margin-bottom:12px}
 .social{display:flex;gap:16px;justify-content:center;margin:22px 0}
-.social a{width:46px;height:46px;border-radius:50%;border:1px solid #5a2a44;display:grid;place-items:center;transition:.35s}
-.social a:hover{background:var(--pink-600);border-color:var(--pink-600);transform:translateY(-4px)}
+.social a{width:46px;height:46px;border-radius:50%;border:1px solid #5a2a44;display:grid;place-items:center;font-size:1.2rem;transition:.35s}
+.social a:hover{background:var(--pink-600);border-color:var(--pink-600);color:#fff;transform:translateY(-4px)}
 footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
 
 .wpp{position:fixed;right:22px;bottom:22px;width:62px;height:62px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:1.9rem;z-index:90;animation:pulse 2.4s infinite}
@@ -182,9 +194,27 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
 </head>
 <body>
 
+<!-- Biblioteca de ícones SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2-5.4A8.4 8.4 0 1 1 21 11.5z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2.1 6.3-6.3 2.1 2.1-6.3z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-polish" viewBox="0 0 24 24"><rect x="6.5" y="10" width="11" height="12" rx="3.5"/><rect x="10" y="2.5" width="4" height="7.5" rx="1.2"/><path d="M9.5 15h5"/></symbol>
+  <symbol id="i-foot" viewBox="0 0 24 24"><path d="M9 10c-2.4 1-3.5 4-3 7 .4 2.6 2.2 4.5 4.5 4.5 2.6 0 3.8-2 3.6-4.6-.2-3.2-1.6-4.4-1.6-6.4 0-1.5-1-2.2-3.5-.5z"/><circle cx="14.2" cy="5" r="1.3"/><circle cx="17.2" cy="7" r="1.1"/><circle cx="19.2" cy="10" r="1"/><circle cx="19.5" cy="13.2" r=".9"/></symbol>
+  <symbol id="i-brush" viewBox="0 0 24 24"><path d="M18.4 2.6a2 2 0 0 1 2.9 2.9L11 15.8l-4-4z"/><path d="M7 12.8c-2.2.1-3.8 1.6-3.8 4 0 1.6-.8 2.7-1.5 3.2 2.8.8 7.4.4 8.3-2.8"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20M9 3L7.5 9 12 22M15 3l1.5 6L12 22"/></symbol>
+  <symbol id="i-flower" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.6"/><circle cx="12" cy="5.8" r="3.2"/><circle cx="18" cy="10.4" r="3.2"/><circle cx="15.7" cy="17.6" r="3.2"/><circle cx="8.3" cy="17.6" r="3.2"/><circle cx="6" cy="10.4" r="3.2"/></symbol>
+</svg>
+
 <header id="header">
   <div class="container nav">
-    <a href="#home" class="logo">💅 Bella <b>Nail</b></a>
+    <a href="#home" class="logo"><svg class="ico f"><use href="#i-sparkle"/></svg> Bella <b>Nail</b></a>
     <button class="burger" id="burger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <nav class="menu" id="menu">
       <a href="#home">Início</a>
@@ -200,7 +230,8 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
 <main>
 <!-- HERO -->
 <section class="hero" id="home">
-  <span class="spark s1">✦</span><span class="spark s2">✦</span>
+  <svg class="ico f spark s1"><use href="#i-sparkle"/></svg>
+  <svg class="ico f spark s2"><use href="#i-sparkle"/></svg>
   <div class="container hero-grid">
     <div>
       <div class="status reveal"><i></i><span id="statusTxt">Aberto · Fecha às 20:00</span></div>
@@ -208,12 +239,12 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
       <h1 class="reveal">Bella <em>Nail</em> Designer</h1>
       <p class="reveal">Unhas lindas, delicadas e feitas com todo carinho. Manicure, pedicure, alongamento e nail art com acabamento perfeito para você brilhar.</p>
       <div class="hero-actions reveal">
-        <a href="#contato" class="btn btn-primary">Agendar horário →</a>
-        <a href="tel:+5511974313238" class="btn btn-outline">📞 (11) 97431-3238</a>
+        <a href="#contato" class="btn btn-primary">Agendar horário <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a href="tel:+5511974313238" class="btn btn-outline"><svg class="ico"><use href="#i-phone"/></svg> (11) 97431-3238</a>
       </div>
       <div class="hero-info reveal">
-        <div>📍 Res. Vale do Sol, Barueri - SP</div>
-        <div>🕗 Fecha às 20:00</div>
+        <div><svg class="ico"><use href="#i-pin"/></svg> Res. Vale do Sol, Barueri - SP</div>
+        <div><svg class="ico"><use href="#i-clock"/></svg> Fecha às 20:00</div>
       </div>
     </div>
     <div class="hero-visual reveal">
@@ -235,17 +266,17 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
           </g>
         </svg>
       </div>
-      <div class="chip c1">💅 Esmaltação em gel</div>
-      <div class="chip c2">✨ Nail art exclusiva</div>
+      <div class="chip c1"><svg class="ico"><use href="#i-polish"/></svg> Esmaltação em gel</div>
+      <div class="chip c2"><svg class="ico f"><use href="#i-sparkle"/></svg> Nail art exclusiva</div>
     </div>
   </div>
 </section>
 
 <div class="marquee"><div>
-  <span>Manicure</span>✦<span>Pedicure</span>✦<span>Alongamento</span>✦<span>Nail Art</span>✦<span>Esmaltação em Gel</span>✦
-  <span>Manicure</span>✦<span>Pedicure</span>✦<span>Alongamento</span>✦<span>Nail Art</span>✦<span>Esmaltação em Gel</span>✦
-  <span>Manicure</span>✦<span>Pedicure</span>✦<span>Alongamento</span>✦<span>Nail Art</span>✦<span>Esmaltação em Gel</span>✦
-  <span>Manicure</span>✦<span>Pedicure</span>✦<span>Alongamento</span>✦<span>Nail Art</span>✦<span>Esmaltação em Gel</span>✦
+  <span>Manicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Pedicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Alongamento</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Nail Art</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Esmaltação em Gel</span><svg class="ico f"><use href="#i-sparkle"/></svg>
+  <span>Manicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Pedicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Alongamento</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Nail Art</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Esmaltação em Gel</span><svg class="ico f"><use href="#i-sparkle"/></svg>
+  <span>Manicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Pedicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Alongamento</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Nail Art</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Esmaltação em Gel</span><svg class="ico f"><use href="#i-sparkle"/></svg>
+  <span>Manicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Pedicure</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Alongamento</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Nail Art</span><svg class="ico f"><use href="#i-sparkle"/></svg><span>Esmaltação em Gel</span><svg class="ico f"><use href="#i-sparkle"/></svg>
 </div></div>
 
 <!-- SERVIÇOS -->
@@ -255,12 +286,12 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
     <h2 class="title reveal">Cuidado completo para suas <em>unhas</em></h2>
     <p class="lead reveal">Consulte valores e disponibilidade pelo WhatsApp.</p>
     <div class="cards">
-      <article class="card reveal"><div class="icon">💅</div><h3>Manicure</h3><p>Cutilagem cuidadosa e esmaltação tradicional ou em gel com brilho duradouro.</p></article>
-      <article class="card reveal"><div class="icon">🦶</div><h3>Pedicure</h3><p>Pés bem cuidados, macios e com esmaltação perfeita.</p></article>
-      <article class="card reveal"><div class="icon">✨</div><h3>Alongamento</h3><p>Unhas longas e resistentes, no formato e tamanho que você preferir.</p></article>
-      <article class="card reveal"><div class="icon">🎨</div><h3>Nail Art</h3><p>Francesinha, encapsulada, pedrarias e desenhos personalizados.</p></article>
-      <article class="card reveal"><div class="icon">💎</div><h3>Esmaltação em Gel</h3><p>Cor intensa, acabamento espelhado e durabilidade por semanas.</p></article>
-      <article class="card reveal"><div class="icon">🌸</div><h3>Cuidados e Hidratação</h3><p>Tratamentos para fortalecer e hidratar suas unhas e cutículas.</p></article>
+      <article class="card reveal"><div class="icon"><svg class="ico"><use href="#i-polish"/></svg></div><h3>Manicure</h3><p>Cutilagem cuidadosa e esmaltação tradicional ou em gel com brilho duradouro.</p></article>
+      <article class="card reveal"><div class="icon"><svg class="ico"><use href="#i-foot"/></svg></div><h3>Pedicure</h3><p>Pés bem cuidados, macios e com esmaltação perfeita.</p></article>
+      <article class="card reveal"><div class="icon"><svg class="ico"><use href="#i-sparkle"/></svg></div><h3>Alongamento</h3><p>Unhas longas e resistentes, no formato e tamanho que você preferir.</p></article>
+      <article class="card reveal"><div class="icon"><svg class="ico"><use href="#i-brush"/></svg></div><h3>Nail Art</h3><p>Francesinha, encapsulada, pedrarias e desenhos personalizados.</p></article>
+      <article class="card reveal"><div class="icon"><svg class="ico"><use href="#i-gem"/></svg></div><h3>Esmaltação em Gel</h3><p>Cor intensa, acabamento espelhado e durabilidade por semanas.</p></article>
+      <article class="card reveal"><div class="icon"><svg class="ico"><use href="#i-flower"/></svg></div><h3>Cuidados e Hidratação</h3><p>Tratamentos para fortalecer e hidratar suas unhas e cutículas.</p></article>
     </div>
   </div>
 </section>
@@ -268,7 +299,7 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
 <!-- SOBRE -->
 <section id="sobre">
   <div class="container about-grid">
-    <div class="about-img reveal">💖</div>
+    <div class="about-img reveal"><svg class="ico f"><use href="#i-heart"/></svg></div>
     <div class="reveal">
       <span class="tag">Sobre a Bella</span>
       <h2 class="title">Seu momento de <em>beleza</em> e carinho</h2>
@@ -296,14 +327,14 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
       <button data-f="long">Alongamento</button>
     </div>
     <div class="grid" id="grid">
-      <div class="item reveal" data-c="gel" style="background:linear-gradient(135deg,#ffd1e3,#ff8fb9)">💅<span>Gel rosa</span></div>
-      <div class="item reveal" data-c="art" style="background:linear-gradient(135deg,#ffe4ef,#ffb3d1)">🎨<span>Francesinha</span></div>
-      <div class="item reveal" data-c="long" style="background:linear-gradient(135deg,#ffc6dd,#ff6fa8)">✨<span>Alongamento</span></div>
-      <div class="item reveal" data-c="art" style="background:linear-gradient(135deg,#f9d4ff,#e58bd8)">💎<span>Pedrarias</span></div>
-      <div class="item reveal" data-c="gel" style="background:linear-gradient(135deg,#fff0f5,#ffc0d6)">🌸<span>Nude rosado</span></div>
-      <div class="item reveal" data-c="long" style="background:linear-gradient(135deg,#ffb3cf,#e8317f)">💖<span>Stiletto</span></div>
+      <div class="item reveal" data-c="gel" style="background:linear-gradient(135deg,#ffb3d1,#ff6fa8)"><svg class="ico"><use href="#i-polish"/></svg><span>Gel rosa</span></div>
+      <div class="item reveal" data-c="art" style="background:linear-gradient(135deg,#ffc6dd,#ff8fb9)"><svg class="ico"><use href="#i-brush"/></svg><span>Francesinha</span></div>
+      <div class="item reveal" data-c="long" style="background:linear-gradient(135deg,#ff9ec3,#e8317f)"><svg class="ico"><use href="#i-sparkle"/></svg><span>Alongamento</span></div>
+      <div class="item reveal" data-c="art" style="background:linear-gradient(135deg,#f3b4f0,#d96ad0)"><svg class="ico"><use href="#i-gem"/></svg><span>Pedrarias</span></div>
+      <div class="item reveal" data-c="gel" style="background:linear-gradient(135deg,#ffd1e3,#ff9ec3)"><svg class="ico"><use href="#i-flower"/></svg><span>Nude rosado</span></div>
+      <div class="item reveal" data-c="long" style="background:linear-gradient(135deg,#ff74ae,#b81d62)"><svg class="ico f"><use href="#i-heart"/></svg><span>Stiletto</span></div>
     </div>
-    <p class="note reveal">Substitua os emojis por fotos reais dos seus trabalhos.</p>
+    <p class="note reveal">Substitua estes blocos por fotos reais dos seus trabalhos.</p>
   </div>
 </section>
 
@@ -316,12 +347,12 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
         <h2 class="title">Venha nos <em style="color:var(--pink-300)">visitar</em></h2>
         <p class="lead">Fale com a gente pelo WhatsApp ou ligue para agendar seu horário.</p>
         <ul class="info">
-          <li><span>📍</span><div><small>Endereço</small>R. Mississipi, 305 – Res. Vale do Sol<br>Barueri - SP, 06437-100</div></li>
-          <li><span>📞</span><div><small>Telefone / WhatsApp</small><a href="tel:+5511974313238">(11) 97431-3238</a></div></li>
-          <li><span>🕗</span><div><small>Horário</small>Fecha às 20:00</div></li>
+          <li><div class="ic"><svg class="ico"><use href="#i-pin"/></svg></div><div><small>Endereço</small>R. Mississipi, 305 – Res. Vale do Sol<br>Barueri - SP, 06437-100</div></li>
+          <li><div class="ic"><svg class="ico"><use href="#i-phone"/></svg></div><div><small>Telefone / WhatsApp</small><a href="tel:+5511974313238">(11) 97431-3238</a></div></li>
+          <li><div class="ic"><svg class="ico"><use href="#i-clock"/></svg></div><div><small>Horário</small>Fecha às 20:00</div></li>
         </ul>
         <a class="btn btn-primary" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/dir/?api=1&destination=R.+Mississipi,+305,+Res.+Vale+do+Sol,+Barueri+-+SP,+06437-100">🧭 Como chegar</a>
+           href="https://www.google.com/maps/dir/?api=1&destination=R.+Mississipi,+305,+Res.+Vale+do+Sol,+Barueri+-+SP,+06437-100"><svg class="ico"><use href="#i-compass"/></svg> Como chegar</a>
       </div>
       <div class="map reveal">
         <iframe loading="lazy" title="Mapa Bella Nail Designer"
@@ -350,18 +381,18 @@ footer small{display:block;margin-top:22px;font-size:.78rem;opacity:.7}
 
 <footer>
   <div class="container">
-    <div class="logo">💅 Bella <b style="color:var(--pink-300)">Nail Designer</b></div>
+    <div class="logo"><svg class="ico f" style="color:var(--pink-300)"><use href="#i-sparkle"/></svg> Bella <b style="color:var(--pink-300)">Nail Designer</b></div>
     <p>R. Mississipi, 305 – Res. Vale do Sol, Barueri - SP</p>
     <div class="social">
-      <a href="https://wa.me/5511974313238" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
-      <a href="tel:+5511974313238" aria-label="Ligar">📞</a>
-      <a href="#" aria-label="Instagram">📸</a>
+      <a href="https://wa.me/5511974313238" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico"><use href="#i-chat"/></svg></a>
+      <a href="tel:+5511974313238" aria-label="Ligar"><svg class="ico"><use href="#i-phone"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg class="ico"><use href="#i-insta"/></svg></a>
     </div>
     <small>© <span id="year"></span> Bella Nail Designer. Todos os direitos reservados.</small>
   </div>
 </footer>
 
-<a class="wpp" href="https://wa.me/5511974313238?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+<a class="wpp" href="https://wa.me/5511974313238?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico"><use href="#i-chat"/></svg></a>
 
 <script>
 const WHATSAPP = "5511974313238";
@@ -395,7 +426,7 @@ document.getElementById('filters').addEventListener('click', e => {
   document.querySelectorAll('#grid .item').forEach(i => i.classList.toggle('hide', f !== 'all' && i.dataset.c !== f));
 });
 
-// Status aberto/fechado (usa 20:00 como fechamento; ajuste a abertura abaixo)
+// Status aberto/fechado (ajuste a abertura abaixo)
 const OPEN_HOUR = 9, CLOSE_HOUR = 20;
 (function () {
   const h = new Date().getHours();
